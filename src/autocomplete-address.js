@@ -26,13 +26,10 @@
 					$neighborhood = this.getData("autocomplete-neighborhood");
 					$city = this.getData("autocomplete-city");
 					$state = this.getData("autocomplete-state");
-					
 					currentCep = $cep.val();
 
 					$cep.blur(function(){
-						
-						if(currentCep != $cep.val()){
-
+						if(currentCep !== $cep.val()){
 							currentCep = $cep.val();
 							self.sendRequest();
 						}
@@ -44,10 +41,10 @@
 
 					// first checks if parameter was passed
 					var result = $(this.settings[data.replace("autocomplete-","")]);
-					if(result.length == 0){
+					if(result.length === 0){
 						// verifies that was specified by class
 						result = $("input."+data);
-						if(result.length == 0){
+						if(result.length === 0){
 							// verifies that was specified by data-attribute
 							result = $("input[data-" + data + "]");
 						}
@@ -58,8 +55,8 @@
 				sendRequest: function () {
 					 $.ajax({
 						url: this.settings.publicAPI.replace("{{cep}}",currentCep),
-						type:'GET',
-						dataType: 'json',
+						type:"GET",
+						dataType: "json",
 						success: function(response){
 							self.bindValues(response);
 						}
@@ -67,14 +64,11 @@
 				},
 				// sends the response data to the respective fields
 				bindValues: function(values){
-				
 					$address.val(values.logradouro);
 					$neighborhood.val(values.bairro);
 					$city.val(values.localidade);
 					$state.val(values.uf);
-					
 					this.checkStatusField([$address,$neighborhood,$city,$state]);
-					
 				},
 				checkStatusField: function(fields){
 					for(var i = 0; i < fields.length; i++){
