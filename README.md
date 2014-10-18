@@ -1,6 +1,8 @@
 # jQuery autocomplete address
 
-> A jQuery plugin to autocomplete address using the correio's CEP, very useful in registrations, ecommerces, systems etc.
+> A jQuery plugin to autocomplete address using the correio's CEP with only ~2KB, very useful in registrations, ecommerces, systems etc.
+
+
 
 ## Browser Support
 
@@ -13,7 +15,7 @@ IE 8+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 ## Getting started
 
 * Clone the repo: `https://github.com/arthurfigueiredo/autocomplete-address.git`
-* Or download [jquery.autocomplete-address.min.js](https://raw.githubusercontent.com/arthurfigueiredo/autocomplete-address/master/dist/jquery.autocomplete-address.min.js) and include in your project: 
+* Or download [jquery.autocomplete-address.min.js](https://raw.githubusercontent.com/arthurfigueiredo/autocomplete-address/master/dist/jquery.autocomplete-address.min.js) and include in your project.
 
 ## Usage
 
