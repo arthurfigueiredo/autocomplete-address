@@ -34,7 +34,7 @@ Include plugin's JS:
 Call the plugin, the #cep selector is the input where the user will enter their CEP (you can use any selector to start the plugin)
 
 ```javascript
-$("#cep").autocompleteAdress();
+$("#cep").autocompleteAddress();
 ```
 
 ```html
@@ -66,7 +66,7 @@ $("#cep").autocompleteAdress();
 Here's a list of available settings.
 
 ```javascript
-$("#cep").autocompleteAdress({
+$("#cep").autocompleteAddress({
 	address: "input#meu-endereco",
 	neighborhood: "form .fields .bairro",
 	city: "form #city",
