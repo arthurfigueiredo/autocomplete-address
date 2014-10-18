@@ -1,4 +1,4 @@
-# jQuery Github 
+# jQuery autocomplete address
 
 > A jQuery plugin to autocomplete address using the correio's CEP, very useful in registrations, ecommerces, systems etc.
 
