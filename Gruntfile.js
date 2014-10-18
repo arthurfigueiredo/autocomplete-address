@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 
 		// Lint definitions
 		jshint: {
-			files: ["src/autocomplete-address.js"],
+			files: ["src/jquery.autocomplete-address.js"],
 			options: {
 				jshintrc: ".jshintrc"
 			}
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 		// Minify definitions
 		uglify: {
 			my_target: {
-				src: ["src/autocomplete-address.js"],
+				src: ["src/jquery.autocomplete-address.js"],
 				dest: "dist/jquery.autocomplete-address.min.js"
 			},
 			options: {
