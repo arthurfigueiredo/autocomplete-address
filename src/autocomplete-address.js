@@ -2,7 +2,7 @@
 
 		var pluginName = "autocompleteAdress",
 				defaults = {
-				publicAPI: "http://cep.correiocontrol.com.br/",
+				publicAPI: "http://cep.correiocontrol.com.br/{{cep}}.json",
 				address: "",
 				neighborhood: "",
 				city: "",
@@ -57,7 +57,7 @@
 				// send the ajax request to public api
 				sendRequest: function () {
 					 $.ajax({
-						url: this.settings.publicAPI + currentCep + ".json",
+						url: this.settings.publicAPI.replace("{{cep}}",currentCep),
 						type:'GET',
 						dataType: 'json',
 						success: function(response){
