@@ -71,7 +71,8 @@
 				this.checkStatusField([$address,$neighborhood,$city,$state]);
 			},
 			checkStatusField: function(fields){
-				for(var i = 0; i < fields.length; i++){
+				var i = fields.length;
+				while(i--){
 					if(fields[i].length > 0 && $(fields[i]).val().match(/[a-z]/i)){
 						$(fields[i]).addClass("disabled").attr("readonly","readonly");
 					} else {
