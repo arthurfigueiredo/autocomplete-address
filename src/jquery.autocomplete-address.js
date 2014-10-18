@@ -67,7 +67,7 @@
 				$neighborhood.val(values.bairro);
 				$city.val(values.localidade);
 				$state.val(values.uf);
-				$state.children("option:contains('"+values.uf+"')").attr('selected', 'selected');
+				$state.children("option:contains('"+values.uf+"')").attr("selected", "selected");
 				this.checkStatusField([$address,$neighborhood,$city,$state]);
 			},
 			checkStatusField: function(fields){
