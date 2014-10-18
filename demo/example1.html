@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			input {
+				display: block;
+			}
+			.disabled {
+				background-color: #e5e5e5;
+				color: rgb(102,102,102);
+			}
+		</style>
+		
+		<script src="../lib/jquery-2.1.1.min.js"></script>
+		<script src="../src/autocomplete-address.js"></script>
+		
+		<script>
+			$(function(){
+				$("#cep").autocompleteAdress();
+			});
+		
+		</script>
+	</head>
+	<body>
+		<form>
+			<label>CEP</label>
+			<input name="cep" id="cep"/>
+			<label>endereço</label>
+			<input name="endereco" id="endereco" data-autocomplete-address/>
+			<label>número</label>
+			<input name="numero" id="numero" />
+			<label>complemento</label>
+			<input name="complemento" id="complemento"/>
+			<label>informações de referência</label>
+			<input name="referencia" id="referencia" />
+			<label>bairro</label>
+			<input name="bairro" id="bairro" data-autocomplete-neighborhood/>
+			<label>cidade</label> 
+			<input name="cidade" id="cidade" data-autocomplete-city />
+			<label>estado</label>
+			<input name="estado" id="estado" data-autocomplete-state />
+			
+			<button>Enviar</button>
+		</form>
+	</body>
+</html>
