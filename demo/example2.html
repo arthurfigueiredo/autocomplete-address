@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script src="../lib/jquery-2.1.1.min.js"></script>
+		<script src="../src/autocomplete-address.js"></script>
+		<script>
+			$(function(){
+				$(".my-cep").autocompleteAdress();
+			});
+			
+		</script>
+	</head>
+	<body>
+		<form action="#" method="post" class="form-horizontal" role="form">
+			<h2>Meu Endereço</h2>
+			<div class="form-group">
+				<label for="my-cep" class="col-sm-2 control-label">CEP</label>
+				<div class="col-sm-10">
+					<input class="form-control my-cep" id="my-cep" placeholder="CEP">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="my-complement" class="col-sm-2 control-label">Complemento</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="my-complement" placeholder="Complemento">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="my-number" class="col-sm-2 control-label">Número</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="my-number" placeholder="Número">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="my-reference" class="col-sm-2 control-label">Ponto de referência</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="my-reference" placeholder="Ponto de referência">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="my-address" class="col-sm-2 control-label">Endereço</label>
+				<div class="col-sm-10">
+					<input class="form-control autocomplete-address" id="my-address" placeholder="Endereço">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="my-neighborhood" class="col-sm-2 control-label">Bairro</label>
+				<div class="col-sm-10">
+					<input class="form-control autocomplete-neighborhood" id="my-neighborhood" placeholder="Bairro">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="city" class="col-sm-2 control-label">Cidade</label>
+				<div class="col-sm-10">
+					<input class="form-control autocomplete-city" id="city" placeholder="Cidade">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="state" class="col-sm-2 control-label">Estado</label>
+				<div class="col-sm-10">
+					<input class="form-control autocomplete-state" id="state" placeholder="Estado">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>
