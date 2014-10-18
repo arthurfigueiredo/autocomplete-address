@@ -1,5 +1,4 @@
 ;(function ( $, window, document, undefined ) {
-	"use strict";
 	var pluginName = "autocompleteAdress",
 			defaults = {
 			publicAPI: "http://cep.correiocontrol.com.br/{{cep}}.json",
