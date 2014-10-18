@@ -79,7 +79,7 @@ Attribute			| Type				| Default		| Description
 `neighborhood`		| *String*		| `null`		| Use the selector that match with the address field.
 `city`		| *String*		| `null`		| Use the selector that match with the address field.
 `state`		| *String*		| `null`		| Use the selector that match with the address field.
-`publicAPI`		| *String*		| `http://cep.correiocontrol.com.br/{{cep}}.json`		| If you do not want to use the default plugin's api, you can specify your api, the value {{cep}}, represents the location where the CEP will be included in the request to the api
+`publicAPI`		| *String*		| `http://cep.correiocontrol .com.br/{{cep}}.json`		| If you do not want to use the default plugin's api, you can specify your api, the value {{cep}}, represents the location where the CEP will be included in the request to the api
 
 
 ## Showcase
