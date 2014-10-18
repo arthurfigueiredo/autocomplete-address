@@ -13,7 +13,7 @@ IE 8+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 ## Getting started
 
 * Clone the repo: `https://github.com/arthurfigueiredo/autocomplete-address.git`
-* Or download [jquery.autocomplete-address.min.js](https://github.com/arthurfigueiredo/autocomplete-address/blob/master/dist/jquery.autocomplete-address.js) and include in your project: 
+* Or download [jquery.autocomplete-address.min.js](https://raw.githubusercontent.com/arthurfigueiredo/autocomplete-address/master/dist/jquery.autocomplete-address.min.js) and include in your project: 
 
 ## Usage
 
