@@ -42,10 +42,10 @@
 				var result = $(this.settings[data.replace("autocomplete-","")]);
 				if(result.length === 0){
 					// verifies that was specified by class
-					result = $("input."+data);
+					result = $("."+data);
 					if(result.length === 0){
 						// verifies that was specified by data-attribute
-						result = $("input[data-" + data + "]");
+						result = $("[data-" + data + "]");
 					}
 				}
 				return result;
@@ -67,6 +67,7 @@
 				$neighborhood.val(values.bairro);
 				$city.val(values.localidade);
 				$state.val(values.uf);
+				$state.children("option:contains('"+values.uf+"')").attr('selected', 'selected');
 				this.checkStatusField([$address,$neighborhood,$city,$state]);
 			},
 			checkStatusField: function(fields){
