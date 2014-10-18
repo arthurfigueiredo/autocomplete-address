@@ -12,9 +12,8 @@ IE 8+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 
 ## Getting started
 
-Three quick start options are available:
-
 * Clone the repo: `https://github.com/arthurfigueiredo/autocomplete-address.git`
+* Or download [jquery.autocomplete-address.min.js](https://github.com/arthurfigueiredo/autocomplete-address/blob/master/dist/jquery.autocomplete-address.js) and include in your project: 
 
 ## Usage
 
@@ -80,7 +79,7 @@ Attribute			| Type				| Default		| Description
 `neighborhood`		| *String*		| `null`		| Use the selector that match with the address field.
 `city`		| *String*		| `null`		| Use the selector that match with the address field.
 `state`		| *String*		| `null`		| Use the selector that match with the address field.
-`publicAPI`		| *String*		| `null`		| If you do not want to use the default plugin's api, you can specify your api, the value {{cep}}, represents the location where the CEP will be included in the request to the api
+`publicAPI`		| *String*		| `http://cep.correiocontrol.com.br/{{cep}}.json`		| If you do not want to use the default plugin's api, you can specify your api, the value {{cep}}, represents the location where the CEP will be included in the request to the api
 
 
 ## Showcase
