@@ -26,7 +26,9 @@
 				$city = this.getData("autocomplete-city");
 				$state = this.getData("autocomplete-state");
 				currentCep = $cep.val();
-
+				if($cep.mask){
+					$cep.mask("99999-999");
+				}
 				$cep.blur(function(){
 					if(currentCep !== $cep.val()){
 						currentCep = $cep.val();
