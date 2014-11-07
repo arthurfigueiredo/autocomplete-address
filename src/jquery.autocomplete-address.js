@@ -31,7 +31,7 @@
 				}
 				$cep.blur(function(){
 					if(currentCep !== $cep.val()){
-						currentCep = $cep.val();
+						currentCep = $cep.val().replace("-", "");
 						self.sendRequest();
 					}
 
