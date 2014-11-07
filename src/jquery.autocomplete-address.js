@@ -20,7 +20,7 @@
 	$.extend(Plugin.prototype, {
 			init: function () {
 				self = this;
-				$cep = $(this.element);
+				$cep = $(this.element).replace("-", "");
 				$address = this.getData("autocomplete-address");
 				$neighborhood = this.getData("autocomplete-neighborhood");
 				$city = this.getData("autocomplete-city");
@@ -31,7 +31,7 @@
 				}
 				$cep.blur(function(){
 					if(currentCep !== $cep.val()){
-						currentCep = $cep.val();
+						currentCep = $cep.val().replace("-", "");
 						self.sendRequest();
 					}
 
@@ -55,7 +55,7 @@
 			// send the ajax request to public api
 			sendRequest: function () {
 				 $.ajax({
-					url: this.settings.publicAPI.replace("{{cep}}",currentCep),
+					url: this.settings.publicAPI.replace("{{cep}}".val.,currentCep),
 					type:"GET",
 					dataType: "json",
 					success: function(response){
