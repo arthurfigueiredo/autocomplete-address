@@ -1,36 +1,35 @@
-# jQuery autocomplete address
+# Plugin jQuery para auto completar endereço
 
-> A jQuery plugin to autocomplete address using the correio's CEP with only ~2KB, very useful in registrations, ecommerces, systems etc.
+> Plugin jQuery para auto completar endereco usando o CEP dos Correios com apenas ~2KB, sem que seja necessário alterar código existente na aplicação, muito util em sistemas de cadastro, ecommerce etc.
 
 
-
-## Browser Support
+## Suporte de Browser
 
 
 ![IE](https://cloud.githubusercontent.com/assets/398893/3528325/20373e76-078e-11e4-8e3a-1cb86cf506f0.png) | ![Chrome](https://cloud.githubusercontent.com/assets/398893/3528328/23bc7bc4-078e-11e4-8752-ba2809bf5cce.png) | ![Firefox](https://cloud.githubusercontent.com/assets/398893/3528329/26283ab0-078e-11e4-84d4-db2cf1009953.png) | ![Opera](https://cloud.githubusercontent.com/assets/398893/3528330/27ec9fa8-078e-11e4-95cb-709fd11dac16.png) | ![Safari](https://cloud.githubusercontent.com/assets/398893/3528331/29df8618-078e-11e4-8e3e-ed8ac738693f.png)
 --- | --- | --- | --- | --- |
-IE 10+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
+IE 10+ ✔ | Último ✔ | Último ✔ | Último ✔ | Último ✔ |
 
-## Getting started
+## Começando
 
-* Clone the repo: `https://github.com/arthurfigueiredo/autocomplete-address.git`
-* Or download [jquery.autocomplete-address.min.js](https://raw.githubusercontent.com/arthurfigueiredo/autocomplete-address/master/dist/jquery.autocomplete-address.min.js) and include in your project.
+* Clone o projeto: `https://github.com/arthurfigueiredo/autocomplete-address.git`
+* Ou baixe [jquery.autocomplete-address.min.js](https://raw.githubusercontent.com/arthurfigueiredo/autocomplete-address/master/dist/jquery.autocomplete-address.min.js) e inclua no seu projeto.
 
-## Usage
+## Usando
 
-Include jQuery:
+Inclua préviamente o jQuery:
 
 ```html
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 ```
 
-Include plugin's JS:
+Inclua o script do plugin:
 
 ```html
 <script src="jquery.autocomplete-address.min.js"></script>
 ```
 
-Call the plugin, the #cep selector is the input where the user will enter their CEP (you can use any selector to start the plugin)
+Chame o plugin, o seletor #cep abaixo é o input onde o usuário vai informar seu CEP (você pode especificar qualquer seletor para iniciar o plugin):
 
 ```javascript
 $("#cep").autocompleteAddress();
@@ -41,7 +40,7 @@ $("#cep").autocompleteAddress();
 ```
 
 
-## Using data-attributes
+## Usando data-attributes
 
 ```html
 <input name="endereco" id="endereco" data-autocomplete-address/>
@@ -50,7 +49,7 @@ $("#cep").autocompleteAddress();
 <input name="estado" id="estado" data-autocomplete-state />
 ```
 
-## Using class
+## Usando classe
 
 ```html
 <input name="endereco" id="endereco" class="autocomplete-address"/>
@@ -60,9 +59,9 @@ $("#cep").autocompleteAddress();
 ```
 
 
-## Options
+## Usando seletor para cada campo
 
-Here's a list of available settings.
+Abaixo uma lista de opções disponíveis:
 
 ```javascript
 $("#cep").autocompleteAddress({
@@ -74,26 +73,20 @@ $("#cep").autocompleteAddress({
 });
 ```
 
-Attribute			| Type				| Default		| Description
+Atributo			| Tipo				| Padrão		| Descrição
 ---						| ---					| ---				| ---
-`address`		| *String*		| `null`		| Use the selector that match with the address field.
-`neighborhood`		| *String*		| `null`		| Use the selector that match with the neighborhood field.
-`city`		| *String*		| `null`		| Use the selector that match with the city field.
-`state`		| *String*		| `null`		| Use the selector that match with the state field.
-`publicAPI`		| *String*		| `http://cep.correiocontrol .com.br/{{cep}}.json`		| If you do not want to use the default plugin's api, you can specify your api, the value {{cep}}, represents the location where the CEP will be included in the request to the api
+`address`		| *String*		| `null`		| Use o seletor CSS para buscar o input endereço no DOM
+`neighborhood`		| *String*		| `null`		| Use o seletor CSS para buscar o input bairro no DOM
+`city`		| *String*		| `null`		| Use o seletor CSS para buscar o input cidade no DOM
+`state`		| *String*		| `null`		| Use o seletor CSS para buscar o input estado no DOM
+`publicAPI`		| *String*		| `http://cep.correiocontrol .com.br/{{cep}}.json`		| Se você não quiser utilizar a API padrão do plugin, você pode especificar a sua API, o valor {{cep}}, representa o local onde o CEP do usuário vai ser enviado no request para sua API
 
 
-## Showcase
 
-**Have you used this plugin in your project?**
+## Como contribuir
 
-Let me know! Send a [tweet](https://twitter.com/ArthurWebdev) or [pull request](https://github.com/arthurfigueiredo/autocomplete-address/pull/new/master) and I'll add it here :)
+Verifique [CONTRIBUTING.md](https://github.com/arthurfigueiredo/autocomplete-address/blob/master/CONTRIBUTING.md).
 
-
-## Contributing
-
-Check [CONTRIBUTING.md](https://github.com/arthurfigueiredo/autocomplete-address/blob/master/CONTRIBUTING.md).
-
-## License
+## Licença
 
 [MIT License](http://arthurfigueiredo.mit-license.org/) © Arthur Figueiredo
