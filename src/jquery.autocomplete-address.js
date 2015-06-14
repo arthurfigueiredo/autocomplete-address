@@ -8,7 +8,7 @@
 			state: ""
 	};
 
-	// The actual plugin constructor
+	// Contrutor do plugin
 	function Plugin ( element, options ) {
 			this.element = element;
 			this.settings = $.extend( {}, defaults, options );
@@ -38,21 +38,21 @@
 				});
 			},
 			getData: function(data){
-				// fallback system to get the fields
+				// sistema fallback para selecionar os campos
 
-				// first checks if parameter was passed
+				// verifica se o campo foi especificado utilizando seletor na inicializacao
 				var result = $(this.settings[data.replace("autocomplete-","")]);
 				if(result.length === 0){
-					// verifies that was specified by class
+					// verifica se o input foi especificado utilizando classes
 					result = $("."+data);
 					if(result.length === 0){
-						// verifies that was specified by data-attribute
+						// verifica se foi especificado por data-attribute
 						result = $("[data-" + data + "]");
 					}
 				}
 				return result;
 			},
-			// send the ajax request to public api
+			// envia o request ajax para a API
 			sendRequest: function () {
 				 $.ajax({
 					url: this.settings.publicAPI.replace("{{cep}}",currentCep),
@@ -63,7 +63,7 @@
 					}
 				});
 			},
-			// sends the response data to the respective fields
+			// Envia a resposta para os respectivos campos
 			bindValues: function(values){
 				$address.val(values.logradouro);
 				$neighborhood.val(values.bairro);
