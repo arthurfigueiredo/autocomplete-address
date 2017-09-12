@@ -1,7 +1,7 @@
 ;(function ( $, window, document, undefined ) {
 	var pluginName = "autocompleteAddress",
 			defaults = {
-			publicAPI: "http://cep.correiocontrol.com.br/{{cep}}.json",
+			publicAPI: "https://viacep.com.br/ws/{{cep}}/json/",
 			address: "",
 			neighborhood: "",
 			city: "",
