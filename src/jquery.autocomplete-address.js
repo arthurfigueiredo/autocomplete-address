@@ -98,11 +98,10 @@
 				while (i--) {
 					$field = $(fields[i]);
 					val = $field.val();
-					if (fields[i].length > 0 && val && val.match(/[a-z]/i)) {
+					if (fields[i].length > 0 && val && val.match(/[a-z]/i))
 						$field.addClass('disabled').prop('readonly', true);
-					} else {
+					else
 						$field.removeClass('disabled').prop('readonly', false);
-					}
 				}
 			},
 	});
