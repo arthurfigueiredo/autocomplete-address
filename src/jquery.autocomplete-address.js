@@ -5,7 +5,8 @@
 			address: "",
 			neighborhood: "",
 			city: "",
-			state: ""
+			state: "",
+			setReadonly: true,
 	};
 
 	// Contrutor do plugin
@@ -29,12 +30,12 @@
 				if($cep.mask){
 					$cep.mask("99999-999");
 				}
-				$cep.blur(function(){
-					if(currentCep !== $cep.val()){
-						currentCep = $cep.val().replace("-", "");
+				$cep.on('blur change', function() {
+					var val = $cep.val();
+					if (val && currentCep !== val && val.length === 9) {
+						currentCep = val;
 						self.sendRequest();
 					}
-
 				});
 			},
 			getData: function(data){
@@ -54,8 +55,9 @@
 			},
 			// envia o request ajax para a API
 			sendRequest: function () {
+				var cep = currentCep.replace('-', '');
 				 $.ajax({
-					url: this.settings.publicAPI.replace("{{cep}}",currentCep),
+					url: this.settings.publicAPI.replace('{{cep}}', cep),
 					type:"GET",
 					dataType: "json",
 					success: function(response){
@@ -67,21 +69,42 @@
 			bindValues: function(values){
 				$address.val(values.logradouro);
 				$neighborhood.val(values.bairro);
-				$city.val(values.localidade);
-				$state.val(values.uf);
-				$state.children("option:contains('"+values.uf+"')").attr("selected", "selected");
-				this.checkStatusField([$address,$neighborhood,$city,$state]);
+
+				if ($state.is('select')) {
+					$state.children('option:contains("' + values.uf + '")').prop('selected', true);
+					// integração com nice-select
+					if ($state.next().hasClass('nice-select'))
+						$state.niceSelect('update');
+				} else {
+					$state.val(values.uf);
+				}
+				$state.change();
+
+				if ($city.is('select')) {
+					$city.children('option:contains("' + values.localidade + '")').prop('selected', true);
+					$city.data('select', values.localidade);
+				} else {
+					$city.val(values.localidade);
+				}
+				$city.change();
+
+				if (this.settings.setReadonly)
+					this.checkStatusField([$address, $neighborhood, $city, $state]);
 			},
-			checkStatusField: function(fields){
-				var i = fields.length;
-				while(i--){
-					if(fields[i].length > 0 && $(fields[i]).val().match(/[a-z]/i)){
-						$(fields[i]).addClass("disabled").attr("readonly","readonly");
+			checkStatusField: function(fields) {
+				var i = fields.length,
+					$field,
+					val;
+				while (i--) {
+					$field = $(fields[i]);
+					val = $field.val();
+					if (fields[i].length > 0 && val && val.match(/[a-z]/i)) {
+						$field.addClass('disabled').prop('readonly', true);
 					} else {
-						$(fields[i]).removeClass("disabled").removeAttr("readonly","readonly");
+						$field.removeClass('disabled').prop('readonly', false);
 					}
 				}
-			}
+			},
 	});
 
 	$.fn[ pluginName ] = function ( options ) {
