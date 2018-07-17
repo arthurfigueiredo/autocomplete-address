@@ -30,9 +30,11 @@
 				if($cep.mask){
 					$cep.mask("99999-999");
 				}
-				$cep.on('blur change', function() {
+				$cep.on('blur change keyup', function() {
 					var val = $cep.val();
-					if (val && currentCep !== val && val.length === 9) {
+					// Remove caracteres que o usuario normalmente digita no cep como - e .
+					val = val.replace(/\-|\./g, "");
+					if (val && currentCep !== val && val.length === 8) {
 						currentCep = val;
 						self.sendRequest();
 					}
