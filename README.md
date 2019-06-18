@@ -19,6 +19,13 @@ IE 10+ ✔ | Último ✔ | Último ✔ | Último ✔ | Último ✔ |
 
 * Ou baixe diretamente o arquivo [dist/jquery.autocomplete-address.min.js](https://raw.githubusercontent.com/arthurfigueiredo/autocomplete-address/master/dist/jquery.autocomplete-address.min.js) e inclua no seu projeto.
 
+* Baixar as dependências:<br>
+	`npm install` <br>
+
+* Rodar tasks Grunt:<br>
+	`grunt` <br>
+
+
 ## Usando
 
 1. Inclua préviamente o [jQuery](http://jquery.com/):
