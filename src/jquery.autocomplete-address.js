@@ -20,22 +20,22 @@
 
 	$.extend(Plugin.prototype, {
 			init: function () {
-				self = this;
-				$cep = $(this.element);
-				$address = this.getData("autocomplete-address");
-				$neighborhood = this.getData("autocomplete-neighborhood");
-				$city = this.getData("autocomplete-city");
-				$state = this.getData("autocomplete-state");
-				currentCep = $cep.val();
-				if($cep.mask){
-					$cep.mask("99999-999");
+				var self = this;
+				this.$cep = $(this.element);
+				this.$address = this.getData("autocomplete-address");
+				this.$neighborhood = this.getData("autocomplete-neighborhood");
+				this.$city = this.getData("autocomplete-city");
+				this.$state = this.getData("autocomplete-state");
+				this.currentCep = this.$cep.val();
+				if(this.$cep.mask){
+					this.$cep.mask("99999-999");
 				}
-				$cep.on('blur change keyup', function() {
-					var val = $cep.val();
+				this.$cep.on('blur change keyup', function() {
+					var val = $(this).val();
 					// Remove caracteres que o usuario normalmente digita no cep como - e .
 					val = val.replace(/\-|\./g, "");
-					if (val && currentCep !== val && val.length === 8) {
-						currentCep = val;
+					if (val && self.currentCep !== val && val.length === 8) {
+						self.currentCep = val;
 						self.sendRequest();
 					}
 				});
@@ -57,9 +57,10 @@
 			},
 			// envia o request ajax para a API
 			sendRequest: function () {
-				var cep = currentCep.replace('-', '');
+				var self = this,
+					cep = this.currentCep.replace('-', '');
 				 $.ajax({
-					url: this.settings.publicAPI.replace('{{cep}}', cep),
+					url: self.settings.publicAPI.replace('{{cep}}', cep),
 					type:"GET",
 					dataType: "json",
 					success: function(response){
@@ -69,29 +70,29 @@
 			},
 			// Envia a resposta para os respectivos campos
 			bindValues: function(values){
-				$address.val(values.logradouro);
-				$neighborhood.val(values.bairro);
+				this.$address.val(values.logradouro);
+				this.$neighborhood.val(values.bairro);
 
-				if ($state.is('select')) {
-					$state.children('option:contains("' + values.uf + '")').prop('selected', true);
+				if (this.$state.is('select')) {
+					this.$state.children('option:contains("' + values.uf + '")').prop('selected', true);
 					// integração com nice-select
-					if ($state.next().hasClass('nice-select'))
-						$state.niceSelect('update');
+					if (this.$state.next().hasClass('nice-select'))
+						this.$state.niceSelect('update');
 				} else {
-					$state.val(values.uf);
+					this.$state.val(values.uf);
 				}
-				$state.change();
+				this.$state.change();
 
-				if ($city.is('select')) {
-					$city.children('option:contains("' + values.localidade + '")').prop('selected', true);
-					$city.data('select', values.localidade);
+				if (this.$city.is('select')) {
+					this.$city.children('option:contains("' + values.localidade + '")').prop('selected', true);
+					this.$city.data('select', values.localidade);
 				} else {
-					$city.val(values.localidade);
+					this.$city.val(values.localidade);
 				}
-				$city.change();
+				this.$city.change();
 
 				if (this.settings.setReadonly)
-					this.checkStatusField([$address, $neighborhood, $city, $state]);
+					this.checkStatusField([this.$address, this.$neighborhood, this.$city, this.$state]);
 			},
 			checkStatusField: function(fields) {
 				var i = fields.length,
