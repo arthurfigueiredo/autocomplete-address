@@ -7,6 +7,9 @@
 			city: "",
 			state: "",
 			setReadonly: true,
+			beforeAPICall:null,
+			beforeBindValues: null,
+			done: null,
 	};
 
 	// Contrutor do plugin
@@ -59,17 +62,30 @@
 			sendRequest: function () {
 				var self = this,
 					cep = this.currentCep.replace('-', '');
-				 $.ajax({
+
+				$.ajax({
 					url: self.settings.publicAPI.replace('{{cep}}', cep),
 					type:"GET",
 					dataType: "json",
-					success: function(response){
-						self.bindValues(response);
+					beforeSend: function() {
+						//Hook to notify when request is sending.
+						self.callHook( 'beforeAPICall' );
 					}
+				})
+				.done( function( response ) {
+					self.bindValues(response);
+				})
+				.always( function() {
+					// Hook to notify when request finished.
+					self.callHook( 'done' );
 				});
 			},
 			// Envia a resposta para os respectivos campos
 			bindValues: function(values){
+				// Hook to notify when fields are going to be bind.
+				// The bind can be stopped if hooked function return false
+				if( false === this.callHook( 'beforeBindValues', values ) ) return;
+
 				this.$address.val(values.logradouro);
 				this.$neighborhood.val(values.bairro);
 
@@ -107,6 +123,11 @@
 						$field.removeClass('disabled').prop('readonly', false);
 				}
 			},
+			callHook: function( hookName, params ){
+				if( this.settings[ hookName ] !== null && typeof this.settings[ hookName ]  === "function" ){
+					return this.settings[ hookName ]( params );
+				}
+			}
 	});
 
 	$.fn[ pluginName ] = function ( options ) {
