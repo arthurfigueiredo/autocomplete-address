@@ -94,6 +94,9 @@ Atributo			| Tipo				| Padrão		| Descrição
 `state`		| *String*		| `null`		| Use o seletor CSS para buscar o input estado no DOM.
 `publicAPI`		| *String*		| `https://viacep.com.br/ws/{{cep}}/json/`		| Se você não quiser utilizar a API padrão do plugin, você pode especificar a sua API, o valor {{cep}}, representa o local onde o CEP do usuário vai ser enviado no request para sua API.
 `setReadonly`		| *Boolean*		| `true`		| Bloqueia a edição dos campos de texto autocompletados - se quiser permitir edição, basta passar `false` na inicialização do plugin.
+`beforeAPICall`		| *Function*		| `null`		| Hook para notificar quando a solicitação da API estiver sendo enviado.
+`beforeBindValues`		| *Function*		| `null`		| Hook para notificar quando os campos serão vinculados. O auto complete pode ser parado se a função retornar `false`
+`done`		| *Function*		| `null`		| Hook para notificar quando a solicitação da API terminar.
 
 ## Como contribuir
 
